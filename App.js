@@ -28,10 +28,10 @@ const App=()=>{
         </Text>
         <TextInput
           style={styles.input}
-          // onChangeText={setVal}
-          onSubmitEditing={(val)=> (val.nativeEvent.text==',' || val.nativeEvent.text=='.') ? Alert.alert('Enter valid input'):setVal(val.nativeEvent.text)}
+          onChangeText={setVal}
+          onSubmitEditing={(val)=>setVal(val.nativeEvent.text)}
           keyboardType={'numeric'}
-          // value={(val==','|| val=='.') ? Alert.alert('Enter valid input'): val.toString()}
+          value={(val==','|| val=='.') ? Alert.alert('Enter valid input'): val.toString()}
           placeholder={`${val}`}
         />
         <View style={{flexDirection:'row',alignSelf:'flex-start'}}>
@@ -120,5 +120,40 @@ const styles = StyleSheet.create({
     color:'white'
   },
 });
+
+// function App() {
+//   const [name, setName] = useState("");
+//   return (
+//     <View style={styles.container}>
+//       <Text>Write name.</Text>
+//       <TextInput
+//         style={styles.input}
+//         onSubmitEditing={(value) => setName(value.nativeEvent.text)}
+//         placeholder={`${name}`}
+//         value={name}
+//       />
+//       {name ? <Text>Welcome, {name}!</Text>:null}
+//     </View>
+//   );
+// }
+
+// const styles = StyleSheet.create({
+//   container:{
+//     flex:1,
+//     backgroundColor:"#FFDBE9"
+//   },
+//   input: {
+//     height: 40,
+//     margin:10,
+//     width:'100%',
+//     borderWidth: 1,
+//     padding: 10,
+//     borderRadius:10,
+//     borderWidth:0,
+//     alignSelf:'flex-start',
+//     backgroundColor:"#7E8274",
+//     color:'white'
+//   },
+// });
 
 export default App;
