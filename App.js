@@ -28,9 +28,10 @@ const App=()=>{
         </Text>
         <TextInput
           style={styles.input}
-          onChangeText={setVal}
+          // onChangeText={setVal}
+          onSubmitEditing={(val)=> (val.nativeEvent.text==',' || val.nativeEvent.text=='.') ? Alert.alert('Enter valid input'):setVal(val.nativeEvent.text)}
           keyboardType={'numeric'}
-          value={(val==','|| val=='.') ? Alert.alert('Enter valid input'): val.toString()}
+          // value={(val==','|| val=='.') ? Alert.alert('Enter valid input'): val.toString()}
           placeholder={`${val}`}
         />
         <View style={{flexDirection:'row',alignSelf:'flex-start'}}>
@@ -119,6 +120,5 @@ const styles = StyleSheet.create({
     color:'white'
   },
 });
-
 
 export default App;
