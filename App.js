@@ -22,7 +22,7 @@ const App=()=>{
   const [gold,setGold]=useState('')
   return(
     <KeyboardAwareScrollView>
-      <View style={{flex:1,justifyContent:'flex-start',alignItems:'center',backgroundColor:"#FFDBE9",height:Height,width:Width}}>
+      <View style={{flex:1,justifyContent:'flex-start',alignItems:'center',backgroundColor:"#CBC3E3",height:Height,width:Width}}>
         <Text style={{fontSize:16,margin:10,alignSelf:'flex-start'}}>
           Payable Amount
         </Text>
