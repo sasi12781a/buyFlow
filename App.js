@@ -34,7 +34,7 @@ const App=()=>{
           onSubmitEditing={(val)=>setVal(val.nativeEvent.text)}
           keyboardType={'numeric'}
           value={(NUM_REGEX.test(val)) ?  val.toString():Alert.alert('Enter valid input')}
-          placeholder={`${val}`}
+          placeholder={NUM_REGEX.test(val) ? `${val}`:'0'}
         />
         <View style={{flexDirection:'row',alignSelf:'flex-start',marginVertical:0.02*Height}}>
           {rates.map((val,id)=>{
@@ -53,7 +53,7 @@ const App=()=>{
           value={`${(val/goldRate).toFixed(4)} gm`}
         />
         {
-          (val==',' || val=='.' || val==0) ? null:
+          NUM_REGEX.test(val) ?
           <View style={{backgroundColor:"#7E8274",borderRadius:10,alignSelf:"flex-start",margin:0.02*Height}}>
             <Text style={{fontSize:0.02*Height,margin:0.02*Height,justifyContent:'center',alignSelf:'center',fontWeight:'bold',color:"white"}}>
               Breakdown
@@ -94,7 +94,7 @@ const App=()=>{
                 </Text>
               </View>
             </View>
-          </View>
+          </View>:null
         }
         <TouchableOpacity style={styles.button}>
           <Text style={{color:"black",fontSize:0.02*Height,alignSelf:'center'}} >
