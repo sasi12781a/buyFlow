@@ -20,7 +20,7 @@ let goldRate=5500;
 
 const App=()=>{
   const [val,setVal] =useState('');
-  const [gold,setGold]=useState('')
+  const [gold,setGold]=useState('');
   return(
     <KeyboardAvoidingView style={styles.container}>
       <View style={{flex:1,justifyContent:'flex-start',alignItems:'center',backgroundColor:"#CBC3E3",height:Height,width:Width}}>
@@ -124,7 +124,6 @@ const styles = StyleSheet.create({
     fontSize:0.02*Height
   },
   button:{
-    flex:1,
     backgroundColor: '#ADD8E6',
     height:0.06*Height,
     width:'100%',
