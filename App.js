@@ -53,13 +53,13 @@ const App=()=>{
         />
         {
           NUM_REGEX.test(val) ?val==0? null:
-          <View style={{backgroundColor:"#7E8274",borderRadius:10,alignSelf:"flex-start",margin:0.02*Height}}>
+          <View style={{backgroundColor:"#7E8274",borderRadius:10,alignSelf:"flex-start",margin:0.02*Height,width:0.8*Width}}>
             <Text style={{fontSize:0.02*Height,margin:0.02*Height,justifyContent:'center',alignSelf:'center',fontWeight:'bold',color:"white"}}>
               Breakdown
             </Text>
-            <View style={{borderBottomColor: 'black',borderBottomWidth: 0.002*Height,marginVertical:0.02*Height,margin:0.02*Height,width:Width*0.8}}/>
+            <View style={{borderBottomColor: 'black',borderBottomWidth: 0.002*Height,marginVertical:0.02*Height,width:0.76*Width,marginLeft:0.02*Width}}/>
             <View>
-              <View style={{flexDirection:'row',justifyContent:"space-between",margin:5}}>
+              <View style={{flexDirection:'row',justifyContent:"space-between",margin:0.005*Height}}>
                 <Text style={{marginHorizontal:10,color:"white",fontSize:0.02*Height}}>
                   Gold Quantity
                 </Text>
@@ -67,7 +67,7 @@ const App=()=>{
                   {`${(val/goldRate).toFixed(4)} gm`}
                 </Text>
               </View>
-              <View style={{flexDirection:'row',justifyContent:"space-between",margin:5}}>
+              <View style={{flexDirection:'row',justifyContent:"space-between",margin:0.005*Height}}>
                 <Text style={{marginHorizontal:10,color:"white",fontSize:0.02*Height}}>
                   Gold Value
                 </Text>
@@ -75,7 +75,7 @@ const App=()=>{
                   {`${val} Rs`}
                 </Text>
               </View>
-              <View style={{flexDirection:'row',justifyContent:"space-between",margin:5}}>
+              <View style={{flexDirection:'row',justifyContent:"space-between",margin:0.005*Height}}>
                 <Text style={{marginHorizontal:10,color:"white",fontSize:0.02*Height}}>
                   GST
                 </Text>
@@ -83,8 +83,8 @@ const App=()=>{
                   3 %
                 </Text>
               </View>
-              <View style={{borderBottomColor: 'black',borderBottomWidth: 0.002*Height,marginVertical:0.02*Height,margin:0.02*Height,width:Width*0.8}}/>
-              <View style={{flexDirection:'row',justifyContent:"space-between",margin:5}}>
+              <View style={{borderBottomColor: 'black',borderBottomWidth: 0.002*Height,marginVertical:0.02*Height,width:Width*0.76,marginLeft:0.02*Width}}/>
+              <View style={{flexDirection:'row',justifyContent:"space-between",margin:0.005*Height}}>
                 <Text style={{marginHorizontal:10,color:"white",fontSize:0.02*Height}}>
                   Payable Amount
                 </Text>
