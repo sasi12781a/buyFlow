@@ -52,7 +52,7 @@ const App=()=>{
           value={`${(val/goldRate).toFixed(4)} gm`}
         />
         {
-          NUM_REGEX.test(val) ?val==0? null:
+          NUM_REGEX.test(val) ? val==0 ? null:
           <View style={{backgroundColor:"#7E8274",borderRadius:10,alignSelf:"flex-start",margin:0.02*Height,width:0.8*Width}}>
             <Text style={{fontSize:0.02*Height,margin:0.02*Height,justifyContent:'center',alignSelf:'center',fontWeight:'bold',color:"white"}}>
               Breakdown
