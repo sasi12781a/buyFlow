@@ -9,7 +9,6 @@ import {
   Alert,
   KeyboardAvoidingView
 } from 'react-native';
-import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
 const Width = Dimensions.get('window').width;
 const Height = Dimensions.get('window').height;
