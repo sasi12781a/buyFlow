@@ -7,6 +7,7 @@ import {
   Dimensions,
   TouchableOpacity,
   Alert,
+  KeyboardAvoidingView
 } from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
@@ -21,7 +22,7 @@ const App=()=>{
   const [val,setVal] =useState('');
   const [gold,setGold]=useState('')
   return(
-    <KeyboardAwareScrollView>
+    <KeyboardAvoidingView style={styles.container}>
       <View style={{flex:1,justifyContent:'flex-start',alignItems:'center',backgroundColor:"#CBC3E3",height:Height,width:Width}}>
         <Text style={{fontSize:0.02*Height,margin:0.02*Height,alignSelf:'flex-start',color:'black'}}>
           Payable Amount
@@ -37,8 +38,8 @@ const App=()=>{
         <View style={{flexDirection:'row',alignSelf:'flex-start',marginVertical:0.02*Height}}>
           {rates.map((val,id)=>{
             return(
-              <TouchableOpacity key={id} style={{marginRight:0.02*Height,marginLeft:0.02*Height,height:0.04*Height,width:0.09*Width,backgroundColor:"#ADD8E6"}} onPress={()=>{setVal(val)}}>
-                <Text style={{fontSize:0.02*Height,padding:0.012*Width,color:"black"}}>{`${val}`}</Text>
+              <TouchableOpacity key={id} style={{marginRight:0.02*Height,marginLeft:0.02*Height,height:0.04*Height,width:0.09*Width,backgroundColor: 'transparent',borderColor:'black',borderWidth:0.001*Width,borderRadius:0.009*Height,justifyContent:"center"}} onPress={()=>{setVal(val)}}>
+                <Text style={{fontSize:0.02*Height,color:"black",alignSelf:"center"}}>{`${val}`}</Text>
               </TouchableOpacity>
             )
           })}
@@ -95,12 +96,12 @@ const App=()=>{
           </View>
         }
         <TouchableOpacity style={styles.button}>
-          <Text style={{color:"black",fontSize:0.02*Height}} >
+          <Text style={{color:"black",fontSize:0.02*Height,alignSelf:'center'}} >
             Buy
           </Text>
         </TouchableOpacity>
       </View>
-    </KeyboardAwareScrollView>
+    </KeyboardAvoidingView>
   )
 }
 
@@ -123,15 +124,14 @@ const styles = StyleSheet.create({
     fontSize:0.02*Height
   },
   button:{
-    alignItems: 'center',
+    flex:1,
     backgroundColor: '#ADD8E6',
     height:0.06*Height,
-    width:Width*0.8,
-    padding:0.013*Height,
-    fontSize:0.02*Height,
-    alignSelf:"flex-start",
-    marginHorizontal:0.02*Height,
-    marginVertical:0.02*Height,
+    width:'100%',
+    position:'absolute',
+    bottom:0,
+    justifyContent:'center',
+    // marginVertical:0.02*Height
   }
 });
 
