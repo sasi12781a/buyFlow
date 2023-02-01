@@ -5,8 +5,9 @@ import {
   Text,
   View,
   Dimensions,
-  Button,
+  TouchableOpacity,
   Alert,
+  Button
 } from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
@@ -23,27 +24,27 @@ const App=()=>{
   return(
     <KeyboardAwareScrollView>
       <View style={{flex:1,justifyContent:'flex-start',alignItems:'center',backgroundColor:"#CBC3E3",height:Height,width:Width}}>
-        <Text style={{fontSize:16,margin:10,alignSelf:'flex-start'}}>
+        <Text style={{fontSize:0.02*Height,margin:0.02*Height,alignSelf:'flex-start',color:'black'}}>
           Payable Amount
         </Text>
         <TextInput
           style={styles.input}
-          onChangeText={setVal}
+          onChangeText={(val)=>setVal(val)}
           onSubmitEditing={(val)=>setVal(val.nativeEvent.text)}
           keyboardType={'numeric'}
           value={(val==','|| val=='.') ? Alert.alert('Enter valid input'): val.toString()}
           placeholder={`${val}`}
         />
-        <View style={{flexDirection:'row',alignSelf:'flex-start'}}>
+        <View style={{flexDirection:'row',alignSelf:'flex-start',marginVertical:0.02*Height}}>
           {rates.map((val,id)=>{
             return(
-              <View key={id} style={{marginRight:20,marginLeft:10}}>
-                <Button title={`${val}`} style={{color:'#7E8274'}} onPress={()=>{setVal(val)}}/>
-              </View>
+              <TouchableOpacity key={id} style={{marginRight:0.02*Height,marginLeft:0.02*Height,height:0.04*Height,width:0.09*Width,backgroundColor:"#ADD8E6"}} onPress={()=>{setVal(val)}}>
+                <Text style={{fontSize:0.02*Height,padding:0.012*Width,color:"black"}}>{`${val}`}</Text>
+              </TouchableOpacity>
             )
           })}
         </View>
-        <Text style={{fontSize:16,margin:10,alignSelf:'flex-start'}}>
+        <Text style={{fontSize:0.02*Height,margin:0.02*Height,alignSelf:'flex-start',color:'black'}}>
           Gold
         </Text>
         <TextInput
@@ -52,51 +53,53 @@ const App=()=>{
         />
         {
           (val==',' || val=='.' || val==0) ? null:
-          <View style={{backgroundColor:"#7E8274",borderRadius:10,alignSelf:"flex-start",margin:10}}>
-            <Text style={{fontSize:16,margin:10,justifyContent:'center',alignSelf:'center',fontWeight:'bold',color:"white"}}>
+          <View style={{backgroundColor:"#7E8274",borderRadius:10,alignSelf:"flex-start",margin:0.02*Height}}>
+            <Text style={{fontSize:0.02*Height,margin:0.02*Height,justifyContent:'center',alignSelf:'center',fontWeight:'bold',color:"white"}}>
               Breakdown
             </Text>
-            <View style={{borderBottomColor: 'black',borderBottomWidth: 1,marginVertical:10,margin:10,width:Width*0.8}}/>
+            <View style={{borderBottomColor: 'black',borderBottomWidth: 0.002*Height,marginVertical:0.02*Height,margin:0.02*Height,width:Width*0.8}}/>
             <View>
               <View style={{flexDirection:'row',justifyContent:"space-between",margin:5}}>
-                <Text style={{marginHorizontal:10,color:"white"}}>
+                <Text style={{marginHorizontal:10,color:"white",fontSize:0.02*Height}}>
                   Gold Quantity
                 </Text>
-                <Text style={{color:"white"}}>
+                <Text style={{color:"white",fontSize:0.02*Height}}>
                   {`${(val/goldRate).toFixed(4)} gm`}
                 </Text>
               </View>
               <View style={{flexDirection:'row',justifyContent:"space-between",margin:5}}>
-                <Text style={{marginHorizontal:10,color:"white"}}>
+                <Text style={{marginHorizontal:10,color:"white",fontSize:0.02*Height}}>
                   Gold Value
                 </Text>
-                <Text style={{color:"white"}}>
+                <Text style={{color:"white",fontSize:0.02*Height}}>
                   {`${val} Rs`}
                 </Text>
               </View>
               <View style={{flexDirection:'row',justifyContent:"space-between",margin:5}}>
-                <Text style={{marginHorizontal:10,color:"white"}}>
+                <Text style={{marginHorizontal:10,color:"white",fontSize:0.02*Height}}>
                   GST
                 </Text>
-                <Text style={{color:"white"}}>
+                <Text style={{color:"white",fontSize:0.02*Height}}>
                   3 %
                 </Text>
               </View>
-              <View style={{borderBottomColor: 'black',borderBottomWidth: 1,marginVertical:20,margin:10,width:Width*0.8}}/>
+              <View style={{borderBottomColor: 'black',borderBottomWidth: 0.002*Height,marginVertical:0.02*Height,margin:0.02*Height,width:Width*0.8}}/>
               <View style={{flexDirection:'row',justifyContent:"space-between",margin:5}}>
-                <Text style={{marginHorizontal:10,color:"white"}}>
+                <Text style={{marginHorizontal:10,color:"white",fontSize:0.02*Height}}>
                   Payable Amount
                 </Text>
-                <Text style={{color:"white"}}>
+                <Text style={{color:"white",fontSize:0.02*Height}}>
                   {`${(val*1.03).toFixed(2)} rs`}
                 </Text>
               </View>
             </View>
           </View>
         }
-        <View style={{width:Width*0.8,marginVertical:10,marginHorizontal:10,alignSelf:'flex-start'}}>
-          <Button title='Buy'/>
-        </View>
+        <TouchableOpacity style={styles.button}>
+          <Text style={{color:"black",fontSize:0.02*Height}} >
+            Buy
+          </Text>
+        </TouchableOpacity>
       </View>
     </KeyboardAwareScrollView>
   )
@@ -108,17 +111,29 @@ const styles = StyleSheet.create({
     backgroundColor:"#FFDBE9"
   },
   input: {
-    height: 40,
-    margin:10,
+    height: 0.06*Height,
+    margin:0.02*Height,
     width:Width*0.8,
     borderWidth: 1,
-    padding: 10,
-    borderRadius:10,
+    padding: 0.02*Height,
+    borderRadius:0.02*Height,
     borderWidth:0,
     alignSelf:'flex-start',
     backgroundColor:"#7E8274",
-    color:'white'
+    color:'white',
+    fontSize:0.02*Height
   },
+  button:{
+    alignItems: 'center',
+    backgroundColor: '#ADD8E6',
+    height:0.06*Height,
+    width:0.8*Width,
+    padding:0.013*Height,
+    fontSize:0.02*Height,
+    alignSelf:"flex-start",
+    marginHorizontal:0.02*Height,
+    marginVertical:0.02*Height
+  }
 });
 
 // function App() {
