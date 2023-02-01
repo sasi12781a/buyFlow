@@ -7,7 +7,6 @@ import {
   Dimensions,
   TouchableOpacity,
   Alert,
-  Button
 } from 'react-native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
@@ -127,12 +126,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#ADD8E6',
     height:0.06*Height,
-    width:0.8*Width,
+    width:Width*0.8,
     padding:0.013*Height,
     fontSize:0.02*Height,
     alignSelf:"flex-start",
     marginHorizontal:0.02*Height,
-    marginVertical:0.02*Height
+    marginVertical:0.02*Height,
   }
 });
 
