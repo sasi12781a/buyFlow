@@ -136,7 +136,6 @@ const styles = StyleSheet.create({
     position:'absolute',
     bottom:0,
     justifyContent:'center',
-    // marginVertical:0.02*Height
   }
 });
 
