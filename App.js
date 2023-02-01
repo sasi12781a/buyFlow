@@ -19,6 +19,7 @@ let goldRate=5500;
 
 const App=()=>{
   const [val,setVal] =useState(0);
+
   console.log(val)
   
   const NUM_REGEX = new RegExp(/^[0-9]*$/);
@@ -31,10 +32,9 @@ const App=()=>{
         <TextInput
           style={styles.input}
           placeholderTextColor='white'
-          onChangeText={(val)=> NUM_REGEX.test(val.split('₹').join('')) ? setVal(val.split('₹').join('')):Alert.alert("Enter valid input")}
-          onSubmitEditing={(val)=>setVal(val.nativeEvent.text)}
+          onChangeText={(val)=> NUM_REGEX.test(val.slice(2)) ? setVal(val.slice(2)):Alert.alert("Enter valid input")}
           keyboardType={'numeric'}
-          value={NUM_REGEX.test(val) ? `₹${val.toString()}`:''}
+          value={`₹ ${val.toString()}`}
           placeholder={`${val}`}
         />
         <View style={{flexDirection:'row',alignSelf:'flex-start',marginVertical:0.02*Height}}>
