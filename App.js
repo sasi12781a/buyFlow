@@ -24,7 +24,7 @@ const App=()=>{
   const [gold,setGold]=useState('');
 
   const NUM_REGEX = new RegExp(/^[0-9]*$/);
-  
+
   const REGEX=new RegExp(/^[a-zA-Z'.,-]{0,150}$/);
 
   return(
@@ -139,40 +139,5 @@ const styles = StyleSheet.create({
     // marginVertical:0.02*Height
   }
 });
-
-// function App() {
-//   const [name, setName] = useState("");
-//   return (
-//     <View style={styles.container}>
-//       <Text>Write name.</Text>
-//       <TextInput
-//         style={styles.input}
-//         onSubmitEditing={(value) => setName(value.nativeEvent.text)}
-//         placeholder={`${name}`}
-//         value={name}
-//       />
-//       {name ? <Text>Welcome, {name}!</Text>:null}
-//     </View>
-//   );
-// }
-
-// const styles = StyleSheet.create({
-//   container:{
-//     flex:1,
-//     backgroundColor:"#FFDBE9"
-//   },
-//   input: {
-//     height: 40,
-//     margin:10,
-//     width:'100%',
-//     borderWidth: 1,
-//     padding: 10,
-//     borderRadius:10,
-//     borderWidth:0,
-//     alignSelf:'flex-start',
-//     backgroundColor:"#7E8274",
-//     color:'white'
-//   },
-// });
 
 export default App;
