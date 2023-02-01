@@ -19,12 +19,8 @@ let goldRate=5500;
 
 const App=()=>{
   const [val,setVal] =useState(0);
-
-  const [gold,setGold]=useState('');
-
+  
   const NUM_REGEX = new RegExp(/^[0-9]*$/);
-
-  const REGEX=new RegExp(/^[a-zA-Z'.,-]{0,150}$/);
 
   return(
     <KeyboardAvoidingView style={styles.container}>
@@ -37,8 +33,8 @@ const App=()=>{
           onChangeText={(val)=> NUM_REGEX.test(val) ? setVal(val):Alert.alert("Enter valid input")}
           onSubmitEditing={(val)=>setVal(val.nativeEvent.text)}
           keyboardType={'numeric'}
-          value={(NUM_REGEX.test(val)) ?  val.toString():Alert.alert('Enter valid input')}
-          placeholder={REGEX.test(val) ? '0': `${val}`}
+          value={val.toString()}
+          placeholder={`${val}`}
         />
         <View style={{flexDirection:'row',alignSelf:'flex-start',marginVertical:0.02*Height}}>
           {rates.map((val,id)=>{
