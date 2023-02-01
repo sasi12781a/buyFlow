@@ -19,8 +19,6 @@ let goldRate=5500;
 
 const App=()=>{
   const [val,setVal] =useState(0);
-
-  console.log(val)
   
   const NUM_REGEX = new RegExp(/^[0-9]*$/);
   return(
