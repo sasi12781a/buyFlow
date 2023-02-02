@@ -9,8 +9,6 @@ import {
   Alert,
   KeyboardAvoidingView
 } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const Width = Dimensions.get('window').width;
 const Height = Dimensions.get('window').height;
@@ -97,7 +95,7 @@ const BuyScreen=({ navigation })=>{
             </View>
           </View>:null
         }
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Pay')}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Pay',{payAmount:(val*1.03).toFixed(2),})}>
           <Text style={{color:"black",fontSize:0.02*Height,alignSelf:'center'}} >
             Buy
           </Text>
