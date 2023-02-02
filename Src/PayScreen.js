@@ -24,8 +24,15 @@ const PayScreen=({ route, navigation })=>{
 
     const check=(value)=>{
         const updatedChecked = [...checked];
-        updatedChecked[value] = !checked[value]
-        setChecked(updatedChecked);
+        let up=[]
+        if (checked[value]==true){
+            updatedChecked[value] = !checked[value]
+            setChecked(updatedChecked);
+            up=[...updatedChecked]
+        }else{
+            up[value]=!updatedChecked[value]
+            setChecked(up)
+        }
         
     }
     const click=()=>{
