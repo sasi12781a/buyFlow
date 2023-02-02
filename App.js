@@ -10,7 +10,11 @@ import {
   KeyboardAvoidingView
 } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import Buy from './Src/Buy';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import BuyScreen from './Src/BuyScreen';
+import PayScreen from './Src/PayScreen';
+
+const Stack = createNativeStackNavigator();
 
 const Width = Dimensions.get('window').width;
 const Height = Dimensions.get('window').height;
@@ -18,7 +22,10 @@ const Height = Dimensions.get('window').height;
 const App=()=>{
   return(
     <NavigationContainer>
-      <Buy/>
+      <Stack.Navigator initialRouteName="Buy">
+        <Stack.Screen name="Buy" component={BuyScreen} />
+        <Stack.Screen name="Pay" component={PayScreen} />
+      </Stack.Navigator>
     </NavigationContainer>
   )
 }    

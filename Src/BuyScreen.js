@@ -9,6 +9,8 @@ import {
   Alert,
   KeyboardAvoidingView
 } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const Width = Dimensions.get('window').width;
 const Height = Dimensions.get('window').height;
@@ -17,7 +19,7 @@ let rates=[50,100,200,500];
 
 let goldRate=5500;
 
-const Buy=()=>{
+const BuyScreen=({ navigation })=>{
   const [val,setVal] =useState(0);
   
   const NUM_REGEX = new RegExp(/^[0-9]*$/);
@@ -95,7 +97,7 @@ const Buy=()=>{
             </View>
           </View>:null
         }
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Pay')}>
           <Text style={{color:"black",fontSize:0.02*Height,alignSelf:'center'}} >
             Buy
           </Text>
@@ -133,4 +135,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Buy;
+export default BuyScreen;
