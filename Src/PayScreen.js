@@ -34,15 +34,15 @@ const PayScreen=({ route, navigation })=>{
 
     return(
         
-        <View style={{flex:1,justifyContent:'center',alignItems:'center',backgroundColor:"#CBC3E3",height:Height,width:Width}}>
-            <View style={{flex:0.8,backgroundColor:'#E1E1E1',height:0.5*Height,width:0.8*Width,borderRadius:0.04*Width}}>
-                <Text style={{color:'black',fontSize:0.06*Width,fontWeight:'bold',alignSelf:'flex-start',paddingVertical:0.03*Width}}>
+        <View style={{flex:1,justifyContent:'flex-start',alignItems:'center',backgroundColor:"#CBC3E3",height:Height,width:Width}}>
+            <View style={{flex:0.8,backgroundColor:'#E1E1E1',height:0.5*Height,width:0.8*Width,borderRadius:0.04*Width,marginVertical:0.06*Width}}>
+                <Text style={{color:'black',fontSize:0.06*Width,fontWeight:'bold',alignSelf:'flex-start',paddingVertical:0.01*Width}}>
                     Select Payment Method
                 </Text>
-                <Text style={{color:'black',fontSize:0.05*Width,fontWeight:'400',alignSelf:'flex-start',padding:0.03*Width}}>
+                <Text style={{color:'black',fontSize:0.05*Width,fontWeight:'400',alignSelf:'flex-start',padding:0.01*Width,paddingHorizontal:0.03*Width}}>
                     Amount
                 </Text>
-                <Text style={{color:'black',fontSize:0.07*Width,fontWeight:'bold',alignSelf:'flex-start',padding:0.03*Width}}>
+                <Text style={{color:'black',fontSize:0.07*Width,fontWeight:'bold',alignSelf:'flex-start',padding:0.01*Width,paddingHorizontal:0.03*Width}}>
                     {`Rs ${payAmount}`}
                 </Text>
                 <View style={{justifyContent:"center",alignItems:'center'}}>
@@ -51,18 +51,18 @@ const PayScreen=({ route, navigation })=>{
                            return(
                                <View key={id}>
                                     <View>
-                                        <TouchableOpacity style={{flexDirection:'row',justifyContent:'space-between',margin:0.03*Width}} onPress={()=>check(id)}>
+                                        <TouchableOpacity style={{flexDirection:'row',justifyContent:'space-between',padding:0.01*Width,paddingHorizontal:0.03*Width}} onPress={()=>check(id)}>
                                             <Text style={{color:'black',fontSize:0.043*Width,fontWeight:'400',alignSelf:'flex-start'}}>
                                                 {val}
                                             </Text>
                                             <CheckBox
-                                            style={{height:0.02*Width,width:0.02*Width,paddingVertical:0.03*Width}}
+                                            style={{height:0.02*Width,width:0.02*Width,padding:0.03*Width,paddingHorizontal:0.03*Width}}
                                             isChecked={checked[id]}
                                             onClick={()=>{}}
                                             />
                                         </TouchableOpacity>
                                     </View>
-                                    <View style={{borderBottomColor: 'black',borderBottomWidth: 0.002*Height,marginVertical:0.01*Height,width:Width*0.76,marginLeft:0.01*Width}}/>
+                                    <View style={{borderBottomColor: 'black',borderBottomWidth: 0.002*Height,marginVertical:0.01*Height,width:Width*0.76,justifyContent:"center",paddingHorizontal:0.02*Width}}/>
                                </View>
                             )
                             
@@ -70,7 +70,7 @@ const PayScreen=({ route, navigation })=>{
                     }
                 </View>
                 <View style={{flexDirection:'row',justifyContent:'space-between'}}>
-                    <Text style={{color:'black',fontSize:0.043*Width,fontWeight:'400',alignSelf:'flex-start',paddingHorizontal:0.03*Width}}>                        
+                    <Text style={{color:'black',fontSize:0.043*Width,fontWeight:'400',alignSelf:'flex-start',padding:0.01*Width,paddingHorizontal:0.04*Width}}>                        
                         Add new Payment Method
                     </Text>
                     <TouchableOpacity onPress={()=>click()}>
