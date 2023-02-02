@@ -13,6 +13,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import BuyScreen from './Src/BuyScreen';
 import PayScreen from './Src/PayScreen';
+import BillScreen from './Src/BillScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -25,6 +26,7 @@ const App=()=>{
       <Stack.Navigator initialRouteName="Buy">
         <Stack.Screen name="Buy" component={BuyScreen} />
         <Stack.Screen name="Pay" component={PayScreen} />
+        <Stack.Screen name="Bill" component={BillScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   )

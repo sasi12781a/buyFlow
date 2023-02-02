@@ -79,7 +79,7 @@ const PayScreen=({ route, navigation })=>{
                 </View>
                 <View style={{borderBottomColor: 'black',borderBottomWidth: 0.002*Height,marginVertical:0.01*Height,width:Width*0.76,marginLeft:0.02*Width}}/>
             </View>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button}  onPress={() => navigation.navigate('Bill')}>
                 <Text style={{color:"black",fontSize:0.04*Height,alignSelf:'center'}} >
                     Pay
                 </Text>
