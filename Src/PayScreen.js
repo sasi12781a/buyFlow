@@ -35,7 +35,7 @@ const PayScreen=({ route, navigation })=>{
     return(
         
         <View style={{flex:1,justifyContent:'flex-start',alignItems:'center',backgroundColor:"#CBC3E3",height:Height,width:Width}}>
-            <View style={{flex:0.8,backgroundColor:'#E1E1E1',height:0.5*Height,width:0.8*Width,borderRadius:0.04*Width,marginVertical:0.06*Width}}>
+            <View style={{backgroundColor:'#E1E1E1',height:0.5*Height,width:0.8*Width,borderRadius:0.04*Width,marginVertical:0.06*Height}}>
                 <Text style={{color:'black',fontSize:0.06*Width,fontWeight:'bold',alignSelf:'flex-start',paddingVertical:0.01*Width}}>
                     Select Payment Method
                 </Text>
@@ -77,10 +77,25 @@ const PayScreen=({ route, navigation })=>{
                        <Icon name="add-outline" size={30} color="black" />  
                     </TouchableOpacity>
                 </View>
-                <View style={{borderBottomColor: 'black',borderBottomWidth: 0.002*Height,marginVertical:0.01*Height,width:Width*0.76,marginLeft:0.01*Width}}/>
+                <View style={{borderBottomColor: 'black',borderBottomWidth: 0.002*Height,marginVertical:0.01*Height,width:Width*0.76,marginLeft:0.02*Width}}/>
             </View>
+            <TouchableOpacity style={styles.button}>
+                <Text style={{color:"black",fontSize:0.04*Height,alignSelf:'center'}} >
+                    Pay
+                </Text>
+            </TouchableOpacity>
         </View>
     )
 }
 
+const styles = StyleSheet.create({
+    button:{
+        backgroundColor: 'white',
+        height:0.06*Height,
+        width:'100%',
+        position:'absolute',
+        bottom:0,
+        justifyContent:'center',
+    }
+})
 export default PayScreen;

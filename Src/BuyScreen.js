@@ -96,7 +96,7 @@ const BuyScreen=({ navigation })=>{
           </View>:null
         }
         <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Pay',{payAmount:(val*1.03).toFixed(2),})}>
-          <Text style={{color:"black",fontSize:0.02*Height,alignSelf:'center'}} >
+          <Text style={{color:"black",fontSize:0.04*Height,alignSelf:'center'}} >
             Buy
           </Text>
         </TouchableOpacity>
