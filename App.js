@@ -15,6 +15,7 @@ import BuyScreen from './Src/BuyScreen';
 import PayScreen from './Src/PayScreen';
 import BillScreen from './Src/BillScreen';
 import WithdrawScreen from './Src/Withdraw/WithdrawScreen';
+import KycScreen from './Src/Withdraw/KycScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -31,6 +32,7 @@ const App=()=>{
       </Stack.Navigator> */}
       <Stack.Navigator initialRouteName="Withdraw">
         <Stack.Screen name='Withdraw' component={WithdrawScreen}/>
+        <Stack.Screen name='Kyc' component={KycScreen}/>
       </Stack.Navigator>
       
     </NavigationContainer>

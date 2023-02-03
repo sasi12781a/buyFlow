@@ -127,6 +127,6 @@ const styles = StyleSheet.create({
       bottom:0,
       justifyContent:'center',
     }
-  });
+});
    
 export default WithdrawScreen;
