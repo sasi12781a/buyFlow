@@ -22,6 +22,7 @@ const BuyScreen=({ navigation })=>{
   const [val,setVal] =useState(0);
   
   const NUM_REGEX = new RegExp(/^[0-9]*$/);
+
   return(
     <KeyboardAvoidingView style={styles.container}>
       <View style={{flex:1,justifyContent:'flex-start',alignItems:'center',backgroundColor:"#CBC3E3",height:Height,width:Width}}>
@@ -96,7 +97,7 @@ const BuyScreen=({ navigation })=>{
             </View>
           </View>:null
         }
-        <TouchableOpacity style={styles.button} onPress={() => val ? navigation.navigate('Pay',{payAmount:(val*1.03).toFixed(2),goldInGrams:(val/goldRate).toFixed(4)}):Alert.alert('Please enter gold value')}>
+        <TouchableOpacity style={styles.button} onPress={() => val>0 ? navigation.navigate('Pay',{payAmount:(val*1.03).toFixed(2),goldInGrams:(val/goldRate).toFixed(4)}):Alert.alert('Please enter Amount')}>
           <Text style={{color:"black",fontSize:0.04*Height,alignSelf:'center'}} >
             Buy
           </Text>
