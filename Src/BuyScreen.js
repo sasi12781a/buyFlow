@@ -26,7 +26,7 @@ const BuyScreen=({ navigation })=>{
 
   return(
     <KeyboardAvoidingView style={styles.container}>
-      <View style={{flex:1,justifyContent:'flex-start',alignItems:'center',backgroundColor:"#CBC3E3",height:Height,width:Width}}>
+      <View style={{flex:1,justifyContent:'flex-start',alignItems:'center',backgroundColor:"#CBC3E3",height:Height,width:Width,marginHorizontal:Width/30}}>
         <Text style={{fontSize:0.02*Height,margin:0.02*Height,alignSelf:'flex-start',color:'black'}}>
           Payable Amount
         </Text>
