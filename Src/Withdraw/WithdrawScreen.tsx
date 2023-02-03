@@ -44,7 +44,7 @@ const WithdrawScreen=()=>{
                         )
                     })}
                 </View>
-                <Text style={{fontSize:0.02*Height,alignSelf:'flex-start',color:'black',marginTop:Width/5}}>
+                <Text style={{fontSize:0.02*Height,alignSelf:'flex-start',color:'black',marginTop:Width/15}}>
                     Amount
                 </Text>
                 <TextInput
@@ -54,7 +54,46 @@ const WithdrawScreen=()=>{
                     keyboardType={'numeric'}
                     value={amount}
                 />
-                
+                {(parseInt(goldPercent)>0 ||parseInt(amount)>0) ??  (goldPercent || amount) ? 
+                <View style={{backgroundColor:'#7E8274',borderBottomLeftRadius:Width/20,borderBottomRightRadius:Width/20}}>
+                  <Text style={{fontSize:0.02*Height,margin:0.02*Height,justifyContent:'center',alignSelf:'center',fontWeight:'bold',color:"white"}}>
+                    Breakdown
+                  </Text>
+                  <View style={{borderBottomColor: 'black',borderBottomWidth: 0.002*Height,marginVertical:Width/60}}/>
+                  <View style={{flexDirection:'row',justifyContent:'space-between',marginVertical:Width/50,marginHorizontal:Width/60}}>
+                    <Text style={{marginHorizontal:10,color:"white",fontSize:0.02*Height}}>
+                      Gold Quantity
+                    </Text>
+                    <Text style={{color:"white",fontSize:0.02*Height}}>
+                    {`${7} gm`}
+                    </Text>
+                  </View>
+                  <View style={{flexDirection:'row',justifyContent:'space-between',marginVertical:Width/50,marginHorizontal:Width/60}}>
+                    <Text style={{marginHorizontal:10,color:"white",fontSize:0.02*Height}}>
+                      Gold Value
+                    </Text>
+                    <Text style={{color:"white",fontSize:0.02*Height}}>
+                    {`${8} gm`}
+                    </Text>
+                  </View>
+                  <View style={{flexDirection:'row',justifyContent:'space-between',marginVertical:Width/50,marginHorizontal:Width/60}}>
+                    <Text style={{marginHorizontal:10,color:"white",fontSize:0.02*Height}}>
+                       GST
+                    </Text>
+                    <Text style={{color:"white",fontSize:0.02*Height}}>
+                    {`${8} gm`}
+                    </Text>
+                  </View>
+                  <View style={{borderBottomColor: 'black',borderBottomWidth: 0.002*Height,marginVertical:Width/60,width:0.70*Width,alignSelf:"center"}}/>         
+                  <View style={{flexDirection:'row',justifyContent:'space-between',marginVertical:Width/50,marginHorizontal:Width/60}}>
+                    <Text style={{marginHorizontal:10,color:"white",fontSize:0.02*Height}}>
+                       Payable Amount
+                    </Text>
+                    <Text style={{color:"white",fontSize:0.02*Height}}>
+                    {`${8} gm`}
+                    </Text>
+                  </View>
+                </View>:null}
             </View>
         </View>
     )
