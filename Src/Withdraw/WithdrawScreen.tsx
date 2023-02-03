@@ -95,6 +95,11 @@ const WithdrawScreen=()=>{
                   </View>
                 </View>:null}
             </View>
+            <TouchableOpacity style={styles.button} onPress={()=>{Alert.alert('complete kyc verification')}}>
+                <Text style={{color:"black",fontSize:0.04*Height,alignSelf:'center'}} >
+                Withdraw
+                </Text>
+            </TouchableOpacity>
         </View>
     )
 }
