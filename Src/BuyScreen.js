@@ -96,7 +96,7 @@ const BuyScreen=({ navigation })=>{
             </View>
           </View>:null
         }
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Pay',{payAmount:(val*1.03).toFixed(2),goldInGrams:(val/goldRate).toFixed(4)})}>
+        <TouchableOpacity style={styles.button} onPress={() => val ? navigation.navigate('Pay',{payAmount:(val*1.03).toFixed(2),goldInGrams:(val/goldRate).toFixed(4)}):Alert.alert('Please enter gold value')}>
           <Text style={{color:"black",fontSize:0.04*Height,alignSelf:'center'}} >
             Buy
           </Text>

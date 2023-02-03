@@ -18,8 +18,11 @@ const Width = Dimensions.get('window').width;
 const Height = Dimensions.get('window').height;
 
 const PayScreen=({ route, navigation })=>{
+
     const [checked, setChecked] = useState([false,false,false]);
+
     const [add,setAdd]=useState(['Payment Method 1','Payment Method 2','Payment Method 3',])
+
     const {payAmount,goldInGrams} = route.params;
 
     const check=(value)=>{
@@ -86,7 +89,7 @@ const PayScreen=({ route, navigation })=>{
                 </View>
                 <View style={{borderBottomColor: 'black',borderBottomWidth: 0.002*Height,marginVertical:0.01*Height,width:Width*0.76,marginLeft:0.02*Width}}/>
             </View>
-            <TouchableOpacity style={styles.button}  onPress={() => navigation.navigate('Bill',{payAmount:payAmount,goldInGrams:goldInGrams})}>
+            <TouchableOpacity style={styles.button}  onPress={() => checked.some(x=>x==true) ? navigation.navigate('Bill',{payAmount:payAmount,goldInGrams:goldInGrams}):Alert.alert("Please select Payment Method")}>
                 <Text style={{color:"black",fontSize:0.04*Height,alignSelf:'center'}} >
                     Pay
                 </Text>
