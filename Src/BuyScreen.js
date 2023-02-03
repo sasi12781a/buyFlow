@@ -10,8 +10,6 @@ import {
   KeyboardAvoidingView
 } from 'react-native';
 
-import {ViewPropTypes} from 'deprecated-react-native-prop-types';
-
 const Width = Dimensions.get('window').width;
 const Height = Dimensions.get('window').height;
 
