@@ -96,7 +96,7 @@ const BuyScreen=({ navigation })=>{
             </View>
           </View>:null
         }
-        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Pay',{payAmount:(val*1.03).toFixed(2),})}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Pay',{payAmount:(val*1.03).toFixed(2),goldInGrams:(val/goldRate).toFixed(4)})}>
           <Text style={{color:"black",fontSize:0.04*Height,alignSelf:'center'}} >
             Buy
           </Text>
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
     fontSize:0.02*Height
   },
   button:{
-    backgroundColor: '#ADD8E6',
+    backgroundColor: "#7E8274",
     height:0.06*Height,
     width:'100%',
     position:'absolute',
