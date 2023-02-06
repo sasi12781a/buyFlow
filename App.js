@@ -29,18 +29,18 @@ const Height = Dimensions.get('window').height;
 const App=()=>{
   return(
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Buy">
+      {/* <Stack.Navigator initialRouteName="Buy">
         <Stack.Screen name="Buy" component={BuyScreen} />
         <Stack.Screen name="Pay" component={PayScreen} />
         <Stack.Screen name="Bill" component={BillScreen} />
-      </Stack.Navigator>
-      {/* <Stack.Navigator initialRouteName="Withdraw">
+      </Stack.Navigator> */}
+      <Stack.Navigator initialRouteName="Withdraw">
         <Stack.Screen name='Withdraw' component={WithdrawScreen}/>
         <Stack.Screen name='Transfer' component={TransferScreen}/>
         <Stack.Screen name='KYC' component={KycScreen}/>
         <Stack.Screen name='Bill' component={WithdrawBill}/>
         <Stack.Screen name='KYCVerification' component={KycVerification}/>
-      </Stack.Navigator> */}
+      </Stack.Navigator>
       
     </NavigationContainer>
   )

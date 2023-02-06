@@ -24,6 +24,22 @@ const WithdrawScreen=({ route, navigation })=>{
     const [goldPercent,setGoldPercent] =useState('');
     const [amount,setAmount]=useState('');
     const goldToSell=((parseInt(goldPercent)/100)*goldContain).toFixed(4).toString()
+    
+    const  alertScreen = () => {
+      Alert.alert(
+        'Complete KYC Verification to Withdraw',
+        '',
+        [
+          {text: 'Save', onPress: () => console.log('No Pressed'), style: 'cancel',},
+          {text: 'Withdraw', onPress: () => navigation.navigate('Transfer')},
+          
+        ],
+        { cancelable: false }
+
+      );
+    }
+
+
     return(
         <View style={{flex:1,justifyContent:'flex-start',alignItems:'center',backgroundColor:"#CBC3E3",height:Height,width:Width}}>
             <View style={{marginHorizontal:Width/30,marginVertical:Width/10}}>
@@ -99,7 +115,7 @@ const WithdrawScreen=({ route, navigation })=>{
                   </View>
                 </View>:null}
             </View>
-            <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate('Transfer')}}>
+            <TouchableOpacity style={styles.button} onPress={()=>{alertScreen()}}>
                 <Text style={{color:"black",fontSize:0.04*Height,alignSelf:'center'}} >
                 Withdraw
                 </Text>
