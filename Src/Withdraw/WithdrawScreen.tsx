@@ -19,9 +19,11 @@ const NUM_REGEX = new RegExp(/^[0-9]*$/);
 let percentage=['25%','50%','70%','100%'];
 let goldContain=23;
 
+
 const WithdrawScreen=({ route, navigation })=>{
     const [goldPercent,setGoldPercent] =useState('');
     const [amount,setAmount]=useState('');
+    const goldToSell=((parseInt(goldPercent)/100)*goldContain).toFixed(4).toString()
     return(
         <View style={{flex:1,justifyContent:'flex-start',alignItems:'center',backgroundColor:"#CBC3E3",height:Height,width:Width}}>
             <View style={{marginHorizontal:Width/30,marginVertical:Width/10}}>
@@ -32,9 +34,9 @@ const WithdrawScreen=({ route, navigation })=>{
                     style={styles.input}
                     placeholderTextColor='white'
                     onChangeText={(val)=> parseInt(val)>100 ?? val.length>=4 ? Alert.alert('value should be less than 100'):NUM_REGEX.test(val) ? setGoldPercent(val):Alert.alert("Enter valid input")}
-                    keyboardType={'numeric'}
+                    keyboardType='number-pad'
                     value={`${parseInt(goldPercent)>=101 ? parseInt(goldPercent.slice(0,2))/100*goldContain:parseInt(goldPercent)<100 ? goldPercent.slice(0,2): goldPercent.slice(0,3)}`}
-                    placeholder={goldPercent ? goldPercent:amount}
+                    placeholder={goldPercent || amount ? amount : goldPercent}
                 />
                 <View style={{flexDirection:'row',justifyContent:'space-between',marginVertical:Width/50}}>
                     {percentage.map((val,id)=>{
@@ -52,9 +54,9 @@ const WithdrawScreen=({ route, navigation })=>{
                     style={styles.input}
                     placeholderTextColor='white'
                     onChangeText={(val)=> NUM_REGEX.test(val) ? setAmount(val):Alert.alert("Enter valid input")}
-                    keyboardType={'numeric'}
+                    keyboardType='number-pad'
                     value={amount}
-                    placeholder={goldPercent.slice(0,2)}
+                    placeholder={amount || goldPercent ? goldToSell:amount}
                 />
                 {(parseInt(goldPercent)>0 || parseInt(amount)>0) ??  (goldPercent || amount) ? 
                 <View style={{backgroundColor:'#7E8274',borderBottomLeftRadius:Width/20,borderBottomRightRadius:Width/20}}>
