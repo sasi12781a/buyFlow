@@ -17,13 +17,13 @@ import CheckBox from 'react-native-check-box';
 const Width = Dimensions.get('window').width;
 const Height = Dimensions.get('window').height;
 
-const PayScreen=({ route, navigation })=>{
+const TransferScreen=({ route, navigation })=>{
 
     const [checked, setChecked] = useState([false,false,false]);
 
-    const [add,setAdd]=useState(['Payment Method 1','Payment Method 2','Payment Method 3',])
+    const [add,setAdd]=useState(['Account 1','Account 2','Account 3',])
 
-    const {payAmount,goldInGrams} = route.params;
+    // const {payAmount,goldInGrams} = route.params;
 
     const check=(value)=>{
         const updatedChecked = [...checked];
@@ -39,7 +39,7 @@ const PayScreen=({ route, navigation })=>{
         
     }
     const click=()=>{
-        setAdd([...add,`Payment Method ${(add.length)+1}`])
+        setAdd([...add,`Account ${(add.length)+1}`])
     }
 
     return(
@@ -47,13 +47,13 @@ const PayScreen=({ route, navigation })=>{
         <View style={{flex:1,justifyContent:'flex-start',alignItems:'center',backgroundColor:"#CBC3E3",height:Height,width:Width}}>
             <View style={{backgroundColor:'#E1E1E1',height:0.5*Height,width:0.8*Width,borderRadius:0.04*Width,marginVertical:0.06*Height,marginHorizontal:Width/30}}>
                 <Text style={{color:'black',fontSize:0.06*Width,fontWeight:'bold',alignSelf:'flex-start',paddingVertical:0.01*Width}}>
-                    Select Saved Account
+                    Select Payment Method
                 </Text>
                 <Text style={{color:'black',fontSize:0.05*Width,fontWeight:'400',alignSelf:'flex-start',padding:0.01*Width,paddingHorizontal:0.03*Width}}>
                     Amount
                 </Text>
                 <Text style={{color:'black',fontSize:0.07*Width,fontWeight:'bold',alignSelf:'flex-start',padding:0.01*Width,paddingHorizontal:0.03*Width}}>
-                    {`Rs ${payAmount}`}
+                    {`Rs ${6}`}
                 </Text>
                 <View style={{justifyContent:"center",alignItems:'center'}}>
                     {
@@ -81,7 +81,7 @@ const PayScreen=({ route, navigation })=>{
                 </View>
                 <View style={{flexDirection:'row',justifyContent:'space-between'}}>
                     <Text style={{color:'black',fontSize:0.043*Width,fontWeight:'400',alignSelf:'flex-start',padding:0.01*Width,paddingHorizontal:0.04*Width}}>                        
-                        Add new Payment Method
+                        Add new Account
                     </Text>
                     <TouchableOpacity onPress={()=>click()}>
                        <Icon name="add-outline" size={30} color="black" />  
@@ -89,9 +89,9 @@ const PayScreen=({ route, navigation })=>{
                 </View>
                 <View style={{borderBottomColor: 'black',borderBottomWidth: 0.002*Height,marginVertical:0.01*Height,width:Width*0.76,marginLeft:0.02*Width}}/>
             </View>
-            <TouchableOpacity style={styles.button}  onPress={() => checked.some(x=>x==true) ? navigation.navigate('Bill',{payAmount:payAmount,goldInGrams:goldInGrams}):Alert.alert("Please select Payment Method")}>
+            <TouchableOpacity style={styles.button}  onPress={() =>  navigation.navigate('Bill')}>
                 <Text style={{color:"black",fontSize:0.04*Height,alignSelf:'center'}} >
-                    Pay
+                    Confirm
                 </Text>
             </TouchableOpacity>
         </View>
@@ -108,4 +108,4 @@ const styles = StyleSheet.create({
         justifyContent:'center',
     }
 })
-export default PayScreen;
+export default TransferScreen;

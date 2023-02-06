@@ -18,7 +18,7 @@ const NUM_REGEX = new RegExp(/^[0-9]*$/);
 
 let percentage=['25%','50%','70%','100%'];
 
-const WithdrawScreen=()=>{
+const WithdrawScreen=({ route, navigation })=>{
     const [goldPercent,setGoldPercent] =useState('');
     const [amount,setAmount]=useState('');
     return(
@@ -54,7 +54,7 @@ const WithdrawScreen=()=>{
                     keyboardType={'numeric'}
                     value={amount}
                 />
-                {(parseInt(goldPercent)>0 ||parseInt(amount)>0) ??  (goldPercent || amount) ? 
+                {(parseInt(goldPercent)>0 || parseInt(amount)>0) ??  (goldPercent || amount) ? 
                 <View style={{backgroundColor:'#7E8274',borderBottomLeftRadius:Width/20,borderBottomRightRadius:Width/20}}>
                   <Text style={{fontSize:0.02*Height,margin:0.02*Height,justifyContent:'center',alignSelf:'center',fontWeight:'bold',color:"white"}}>
                     Breakdown
@@ -95,7 +95,7 @@ const WithdrawScreen=()=>{
                   </View>
                 </View>:null}
             </View>
-            <TouchableOpacity style={styles.button} onPress={()=>{Alert.alert('complete kyc verification')}}>
+            <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate('Kyc')}}>
                 <Text style={{color:"black",fontSize:0.04*Height,alignSelf:'center'}} >
                 Withdraw
                 </Text>
