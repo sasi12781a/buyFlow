@@ -24,9 +24,9 @@ const BuyScreen=({ navigation })=>{
   const NUM_REGEX = new RegExp(/^[0-9]*$/);
 
   return(
-    <View style={{flex:1,justifyContent:'flex-start',alignItems:'center',backgroundColor:"#CBC3E3",height:Height,width:Width,}}>
-      <View style={{marginHorizontal:Width/30}}>
-        <Text style={{fontSize:0.02*Height,margin:0.02*Height,alignSelf:'flex-start',color:'black'}}>
+    <View style={{flex:1,justifyContent:'flex-start',alignItems:'center',backgroundColor:"#CBC3E3",height:Height,width:Width}}>
+      <View style={{marginHorizontal:Width/30,marginVertical:Width/10}}>
+        <Text style={{fontSize:0.02*Height,marginTop:0.02*Height,alignSelf:'flex-start',color:'black',marginHorizontal:Width/30}}>
           Payable Amount
         </Text>
         <TextInput
@@ -37,16 +37,16 @@ const BuyScreen=({ navigation })=>{
           value={`₹ ${val.toString()}`}
           placeholder={`${val}`}
         />
-        <View style={{flexDirection:'row',alignSelf:'flex-start',marginVertical:0.02*Height}}>
+        <View style={{flexDirection:'row',justifyContent:'space-between',marginVertical:Width/50,marginHorizontal:Width/30}}>
           {rates.map((val,id)=>{
             return(
-              <TouchableOpacity key={id} style={{marginRight:0.02*Height,marginLeft:0.02*Height,height:0.04*Height,width:0.09*Width,backgroundColor: 'transparent',borderColor:'black',borderWidth:0.001*Width,borderRadius:0.009*Height,justifyContent:"center"}} onPress={()=>{setVal(val)}}>
+              <TouchableOpacity key={id} style={{height:0.04*Height,width:0.14*Width,backgroundColor: '#7E8274',borderRadius:0.016*Height,justifyContent:"center"}} onPress={()=>{setVal(val)}}>
                 <Text style={{fontSize:0.02*Height,color:"black",alignSelf:"center"}}>{`${val}`}</Text>
               </TouchableOpacity>
             )
           })}
         </View>
-        <Text style={{fontSize:0.02*Height,margin:0.02*Height,alignSelf:'flex-start',color:'black'}}>
+        <Text style={{fontSize:0.02*Height,marginTop:0.02*Height,alignSelf:'flex-start',color:'black',marginHorizontal:Width/30}}>
           Gold
         </Text>
         <TextInput
@@ -55,7 +55,7 @@ const BuyScreen=({ navigation })=>{
         />
         {
           NUM_REGEX.test(val) ? val==0 ? null:
-          <View style={{backgroundColor:"#7E8274",borderRadius:10,alignSelf:"flex-start",margin:0.02*Height,width:0.8*Width}}>
+          <View style={{backgroundColor:"#7E8274",borderBottomLeftRadius:0.02*Height,borderBottomRightRadius:0.02*Height,alignSelf:"flex-start",margin:0.02*Height,width:0.8*Width}}>
             <Text style={{fontSize:0.02*Height,margin:0.02*Height,justifyContent:'center',alignSelf:'center',fontWeight:'bold',color:"white"}}>
               Breakdown
             </Text>
