@@ -51,8 +51,6 @@ const BuyScreen=({ navigation })=>{
         </Text>
         <TextInput
           style={styles.input}
-                    onChangeText={(val)=> NUM_REGEX.test(val.slice(2)) ? setVal(val.slice(2)):Alert.alert("Enter valid input")}
-
           value={`${(val/goldRate).toFixed(4)} gm`}
         />
         {
