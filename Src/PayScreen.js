@@ -61,7 +61,7 @@ const PayScreen=({ route, navigation })=>{
                         add.map((val,id)=>{
                         return(
                             <View key={id}>
-                                <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'flex-start'}} >
+                                <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'flex-start',marginVertical:Width/60}} >
                                     <TouchableOpacity onPress={()=>check(id)} style={{paddingLeft:Width/30}}>
                                         <Text style={{color:'black',fontSize:0.043*Width,fontWeight:'400'}}>
                                             {val}
@@ -75,7 +75,7 @@ const PayScreen=({ route, navigation })=>{
                                         />
                                     </TouchableOpacity>
                                 </View>
-                                <View style={{borderBottomColor: 'black',borderBottomWidth: 0.002*Height,marginVertical:0.01*Height,width:Width*0.8,justifyContent:'flex-start',marginHorizontal:Width/30}}/>
+                                <View style={{borderBottomColor: 'black',borderBottomWidth: 0.002*Height,width:Width*0.8,justifyContent:'flex-start',marginHorizontal:Width/30}}/>
                             </View>
                             )
                             

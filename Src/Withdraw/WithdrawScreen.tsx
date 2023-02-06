@@ -42,11 +42,11 @@ const WithdrawScreen=({ route, navigation })=>{
 
 
     return(
-      <ScrollView>
+      <ScrollView >
         <View style={{justifyContent:'flex-start',alignItems:'center',backgroundColor:"#CBC3E3",height:Height,width:Width}}>
           <View style={{marginHorizontal:Width/30,marginVertical:Width/10}}>
             <Text style={{fontSize:0.02*Height,alignSelf:'flex-start',color:'black'}}>
-                Gold
+              Gold
             </Text>
             <TextInput
                 style={styles.input}
@@ -63,7 +63,7 @@ const WithdrawScreen=({ route, navigation })=>{
                     <Text style={{fontSize:0.02*Height,color:"black",alignSelf:"center"}}>{`${val}`}</Text>
                   </TouchableOpacity>
                 )
-              })}
+            })}
             </View>
             <Text style={{fontSize:0.02*Height,alignSelf:'flex-start',color:'black',marginTop:Width/15}}>
                 Amount
