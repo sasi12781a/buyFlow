@@ -7,7 +7,8 @@ import {
     Dimensions,
     TouchableOpacity,
     Alert,
-    KeyboardAvoidingView
+    KeyboardAvoidingView,
+    ScrollView
 } from 'react-native';
 
 const Width = Dimensions.get('window').width;
@@ -41,7 +42,8 @@ const WithdrawScreen=({ route, navigation })=>{
 
 
     return(
-        <View style={{flex:1,justifyContent:'flex-start',alignItems:'center',backgroundColor:"#CBC3E3",height:Height,width:Width}}>
+      <ScrollView>
+        <View style={{justifyContent:'flex-start',alignItems:'center',backgroundColor:"#CBC3E3",height:Height,width:Width}}>
           <View style={{marginHorizontal:Width/30,marginVertical:Width/10}}>
             <Text style={{fontSize:0.02*Height,alignSelf:'flex-start',color:'black'}}>
                 Gold
@@ -121,6 +123,7 @@ const WithdrawScreen=({ route, navigation })=>{
               </Text>
           </TouchableOpacity>
         </View>
+      </ScrollView>
     )
 }
 

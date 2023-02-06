@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   Alert,
   KeyboardAvoidingView,
+  ScrollView,
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/dist/Ionicons';
@@ -57,51 +58,55 @@ const TransferScreen=({ route, navigation })=>{
     }
 
     return(
-        
-        <View style={{flex:1,justifyContent:'flex-start',alignItems:'center',backgroundColor:"#CBC3E3",height:Height,width:Width}}>
-            <View style={{backgroundColor:'#E1E1E1',height:0.5*Height,width:0.8*Width,borderRadius:0.04*Width,marginVertical:0.06*Height,marginHorizontal:Width/30}}>
+        <ScrollView>
+        <View style={{justifyContent:'flex-start',alignItems:'center',backgroundColor:"#CBC3E3",height:Height,width:Width}}>
+        <View style={{backgroundColor:'#E1E1E1',width:0.9*Width,borderRadius:0.04*Width,marginVertical:Height/30,marginHorizontal:Width/30}}>
                 <Text style={{color:'black',fontSize:0.06*Width,fontWeight:'bold',alignSelf:'flex-start',paddingVertical:0.01*Width}}>
-                    Select Payment Method
+                    Select Saved Account
                 </Text>
-                <Text style={{color:'black',fontSize:0.05*Width,fontWeight:'400',alignSelf:'flex-start',padding:0.01*Width,paddingHorizontal:0.03*Width}}>
+                <Text style={{color:'black',fontSize:0.05*Width,fontWeight:'400',alignSelf:'flex-start',marginHorizontal:Width/30}}>
                     Amount
                 </Text>
-                <Text style={{color:'black',fontSize:0.07*Width,fontWeight:'bold',alignSelf:'flex-start',padding:0.01*Width,paddingHorizontal:0.03*Width}}>
-                    {`Rs ${6}`}
+                <Text style={{color:'black',fontSize:0.07*Width,fontWeight:'bold',alignSelf:'flex-start',marginHorizontal:Width/30}}>
+                    {`Rs ${60}`}
                 </Text>
-                <View style={{justifyContent:"center",alignItems:'center'}}>
+                <View style={{justifyContent:"center",alignItems:'flex-start',}}>
                     {
                         add.map((val,id)=>{
                            return(
-                               <View key={id}>
-                                    <View>
-                                        <TouchableOpacity style={{flexDirection:'row',justifyContent:'space-between',padding:0.01*Width,paddingHorizontal:0.03*Width}} onPress={()=>check(id)}>
-                                            <Text style={{color:'black',fontSize:0.043*Width,fontWeight:'400',alignSelf:'flex-start'}}>
-                                                {val}
-                                            </Text>
-                                            <CheckBox
-                                            style={{height:0.02*Width,width:0.02*Width,padding:0.03*Width,paddingHorizontal:0.03*Width}}
-                                            isChecked={checked[id]}
-                                            onClick={()=>{check(id)}}
-                                            />
-                                        </TouchableOpacity>
-                                    </View>
-                                    <View style={{borderBottomColor: 'black',borderBottomWidth: 0.002*Height,marginVertical:0.01*Height,width:Width*0.76,justifyContent:"center",paddingHorizontal:0.02*Width}}/>
-                               </View>
+                            <View key={id}>
+                                <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'flex-start'}} >
+                                    <TouchableOpacity onPress={()=>check(id)} style={{paddingLeft:Width/30}}>
+                                        <Text style={{color:'black',fontSize:0.043*Width,fontWeight:'400'}}>
+                                            {val}
+                                        </Text>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity style={{paddingHorizontal:Width/15}} onPress={()=>check(id)}>
+                                        <CheckBox
+                                        style={{height:0.02*Width,width:0.02*Width}}
+                                        isChecked={checked[id]}
+                                        onClick={()=>{check(id)}}
+                                        />
+                                    </TouchableOpacity>
+                                </View>
+                                <View style={{borderBottomColor: 'black',borderBottomWidth: 0.002*Height,marginVertical:0.01*Height,width:Width*0.8,justifyContent:'flex-start',marginHorizontal:Width/30}}/>
+                            </View>
                             )
                             
                         })
                     }
                 </View>
-                <View style={{flexDirection:'row',justifyContent:'space-between'}}>
-                    <Text style={{color:'black',fontSize:0.043*Width,fontWeight:'400',alignSelf:'flex-start',padding:0.01*Width,paddingHorizontal:0.04*Width}}>                        
-                        Add new Account
-                    </Text>
-                    <TouchableOpacity onPress={()=>click()}>
-                       <Icon name="add-outline" size={30} color="black" />  
+                <View style={{flexDirection:"row",alignItems:"flex-start",justifyContent:'space-between',}}>
+                    <TouchableOpacity style={{paddingHorizontal:Width/30}} onPress={()=>click()} >
+                        <Text style={{color:'black',fontSize:0.043*Width,fontWeight:'400'}}>                        
+                            Add new Account
+                        </Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={()=>click()} style={{paddingHorizontal:Width/22}} >
+                        <Icon name="add-outline" size={30} color="black" />  
                     </TouchableOpacity>
                 </View>
-                <View style={{borderBottomColor: 'black',borderBottomWidth: 0.002*Height,marginVertical:0.01*Height,width:Width*0.76,marginLeft:0.02*Width}}/>
+                <View style={{borderBottomColor: 'black',borderBottomWidth: 0.002*Height,width:Width*0.8,marginHorizontal:Width/30,marginVertical:0.01*Height}}/>
             </View>
             <TouchableOpacity style={styles.button}  onPress={()=> {checked.some(x=>x==true) ? navigation.navigate('Bill'):twoOptionsAlertFunction()}}>
                 <Text style={{color:"black",fontSize:0.04*Height,alignSelf:'center'}} >
@@ -109,6 +114,7 @@ const TransferScreen=({ route, navigation })=>{
                 </Text>
             </TouchableOpacity>
         </View>
+        </ScrollView>
     )
 }
 
