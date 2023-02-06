@@ -27,8 +27,8 @@ const WithdrawScreen=({ route, navigation })=>{
     
     const  alertScreen = () => {
       Alert.alert(
-        'Complete KYC Verification to Withdraw',
-        '',
+        "Why don't you save now,",
+        `Grow your savings to RS.${40}. in just few years  `,
         [
           {text: 'Save', onPress: () => console.log('No Pressed'), style: 'cancel',},
           {text: 'Withdraw', onPress: () => navigation.navigate('Transfer')},
