@@ -20,11 +20,12 @@ let goldRate=5500;
 const BuyScreen=({ navigation })=>{
   const [val,setVal] =useState(0);
   
+  
   const NUM_REGEX = new RegExp(/^[0-9]*$/);
 
   return(
-    <KeyboardAvoidingView style={styles.container}>
-      <View style={{flex:1,justifyContent:'flex-start',alignItems:'center',backgroundColor:"#CBC3E3",height:Height,width:Width,marginHorizontal:Width/30}}>
+    <View style={{flex:1,justifyContent:'flex-start',alignItems:'center',backgroundColor:"#CBC3E3",height:Height,width:Width,}}>
+      <View style={{marginHorizontal:Width/30}}>
         <Text style={{fontSize:0.02*Height,margin:0.02*Height,alignSelf:'flex-start',color:'black'}}>
           Payable Amount
         </Text>
@@ -50,6 +51,8 @@ const BuyScreen=({ navigation })=>{
         </Text>
         <TextInput
           style={styles.input}
+                    onChangeText={(val)=> NUM_REGEX.test(val.slice(2)) ? setVal(val.slice(2)):Alert.alert("Enter valid input")}
+
           value={`${(val/goldRate).toFixed(4)} gm`}
         />
         {
@@ -96,13 +99,13 @@ const BuyScreen=({ navigation })=>{
             </View>
           </View>:null
         }
-        <TouchableOpacity style={styles.button} onPress={() => val>0 ? navigation.navigate('Pay',{payAmount:(val*1.03).toFixed(2),goldInGrams:(val/goldRate).toFixed(4)}):Alert.alert('Please enter Amount')}>
-          <Text style={{color:"black",fontSize:0.04*Height,alignSelf:'center'}} >
-            Buy
-          </Text>
-        </TouchableOpacity>
       </View>
-    </KeyboardAvoidingView>
+      <TouchableOpacity style={styles.button} onPress={() => val>0 ? navigation.navigate('Pay',{payAmount:(val*1.03).toFixed(2),goldInGrams:(val/goldRate).toFixed(4)}):Alert.alert('Please enter Amount')}>
+        <Text style={{color:"black",fontSize:0.04*Height,alignSelf:'center'}} >
+          Buy
+        </Text>
+      </TouchableOpacity>
+    </View>
   )
 }
 
