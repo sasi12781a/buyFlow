@@ -15,7 +15,7 @@ const Width = Dimensions.get('window').width;
 
 const Height = Dimensions.get('window').height;
 
-const KycScreen=()=>{
+const KycScreen=({navigation})=>{
     return(
         <View style={{flex:1,justifyContent:'flex-start',alignItems:'center',backgroundColor:"#CBC3E3",height:Height,width:Width}}>
             <Text style={{fontSize:0.03*Height,color:'black',fontWeight:'bold',alignSelf:"flex-start",marginHorizontal:Width/50,marginVertical:Width/50}}>
@@ -37,7 +37,7 @@ const KycScreen=()=>{
                   </View>  
                 </View>
             </View>
-            <TouchableOpacity style={styles.button} onPress={()=>{}}>
+            <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate('KYCVerification')}}>
                 <Text style={{color:"black",fontSize:0.04*Height,alignSelf:'center'}} >
                   Submit
                 </Text>

@@ -25,7 +25,21 @@ const TransferScreen=({ route, navigation })=>{
 
     // const {payAmount,goldInGrams} = route.params;
 
-    const check=(value)=>{
+   const  twoOptionsAlertFunction = () => {
+        Alert.alert(
+          'Complete KYC Verification to Withdraw',
+          '',
+          [
+            {text: 'Cancel', onPress: () => console.log('No Pressed'), style: 'cancel',},
+            {text: 'Continue', onPress: () => navigation.navigate('KYC')},
+            
+          ],
+          { cancelable: false }
+
+        );
+      }
+
+    const check=(value:number)=>{
         const updatedChecked = [...checked];
         let up=[]
         if (checked[value]==true){
@@ -89,7 +103,7 @@ const TransferScreen=({ route, navigation })=>{
                 </View>
                 <View style={{borderBottomColor: 'black',borderBottomWidth: 0.002*Height,marginVertical:0.01*Height,width:Width*0.76,marginLeft:0.02*Width}}/>
             </View>
-            <TouchableOpacity style={styles.button}  onPress={() =>  navigation.navigate('Bill')}>
+            <TouchableOpacity style={styles.button}  onPress={()=> {checked.some(x=>x==true) ? navigation.navigate('Bill'):twoOptionsAlertFunction()}}>
                 <Text style={{color:"black",fontSize:0.04*Height,alignSelf:'center'}} >
                     Confirm
                 </Text>

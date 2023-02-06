@@ -17,6 +17,7 @@ const Height = Dimensions.get('window').height;
 const NUM_REGEX = new RegExp(/^[0-9]*$/);
 
 let percentage=['25%','50%','70%','100%'];
+let goldContain=23;
 
 const WithdrawScreen=({ route, navigation })=>{
     const [goldPercent,setGoldPercent] =useState('');
@@ -32,8 +33,8 @@ const WithdrawScreen=({ route, navigation })=>{
                     placeholderTextColor='white'
                     onChangeText={(val)=> parseInt(val)>100 ?? val.length>=4 ? Alert.alert('value should be less than 100'):NUM_REGEX.test(val) ? setGoldPercent(val):Alert.alert("Enter valid input")}
                     keyboardType={'numeric'}
-                    value={`${parseInt(goldPercent)>=101 ? goldPercent.slice(0,2):parseInt(goldPercent)<100 ? goldPercent.slice(0,2): goldPercent.slice(0,3)}`}
-                    placeholder={goldPercent}
+                    value={`${parseInt(goldPercent)>=101 ? parseInt(goldPercent.slice(0,2))/100*goldContain:parseInt(goldPercent)<100 ? goldPercent.slice(0,2): goldPercent.slice(0,3)}`}
+                    placeholder={goldPercent ? goldPercent:amount}
                 />
                 <View style={{flexDirection:'row',justifyContent:'space-between',marginVertical:Width/50}}>
                     {percentage.map((val,id)=>{
@@ -53,6 +54,7 @@ const WithdrawScreen=({ route, navigation })=>{
                     onChangeText={(val)=> NUM_REGEX.test(val) ? setAmount(val):Alert.alert("Enter valid input")}
                     keyboardType={'numeric'}
                     value={amount}
+                    placeholder={goldPercent.slice(0,2)}
                 />
                 {(parseInt(goldPercent)>0 || parseInt(amount)>0) ??  (goldPercent || amount) ? 
                 <View style={{backgroundColor:'#7E8274',borderBottomLeftRadius:Width/20,borderBottomRightRadius:Width/20}}>
@@ -95,7 +97,7 @@ const WithdrawScreen=({ route, navigation })=>{
                   </View>
                 </View>:null}
             </View>
-            <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate('Kyc')}}>
+            <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate('Transfer')}}>
                 <Text style={{color:"black",fontSize:0.04*Height,alignSelf:'center'}} >
                 Withdraw
                 </Text>
