@@ -15,6 +15,25 @@ import Icon from 'react-native-vector-icons/dist/Ionicons';
 const Width = Dimensions.get('window').width;
 const Height = Dimensions.get('window').height;
 
+interface props{
+  item:string;
+  quantity:any;
+}
+
+
+const Sample=(p:props)=>{
+  return(
+    <View>
+      <Text>
+        {p.item}
+      </Text>
+      <Text>
+        {p.quantity}
+      </Text>
+    </View>
+  )
+}
+
 const KycVerification=({navigation})=>{
     return(
         <View style={{flex:1,backgroundColor:'#CBC3E3'}}>
