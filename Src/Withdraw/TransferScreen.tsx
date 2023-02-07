@@ -58,8 +58,8 @@ const TransferScreen=({ route, navigation })=>{
     }
 
     return(
-        <ScrollView>
-        <View style={{justifyContent:'flex-start',alignItems:'center',backgroundColor:"#CBC3E3",height:Height,width:Width}}>
+        <View style={{flex:1,justifyContent:'flex-start',alignItems:'center',backgroundColor:"#CBC3E3",height:Height,width:Width}}>
+            <ScrollView style={{marginBottom:Width/10}}>
             <View style={{backgroundColor:'#E1E1E1',borderRadius:0.04*Width,marginVertical:Height/20,marginHorizontal:Width/30}}>
                 <Text style={{color:'black',fontSize:0.06*Width,fontWeight:'bold',alignSelf:'flex-start',}}>
                     Select Saved Account
@@ -75,7 +75,7 @@ const TransferScreen=({ route, navigation })=>{
                         add.map((val,id)=>{
                            return(
                             <View key={id}>
-                                <View style={{flexDirection:'row',justifyContent:'space-between',alignItems:'center'}} >
+                                <View style={{flexDirection:'row',justifyContent:'space-between'}} >
                                     <TouchableOpacity onPress={()=>check(id)} style={{paddingLeft:Width/60}}>
                                         <Text style={{color:'black',fontSize:0.043*Width,fontWeight:'400'}}>
                                             {val}
@@ -109,13 +109,13 @@ const TransferScreen=({ route, navigation })=>{
                 </View>
                 
             </View>
+            </ScrollView>
             <TouchableOpacity style={styles.button}  onPress={()=> {checked.some(x=>x==true) ? navigation.navigate('Bill'):twoOptionsAlertFunction()}}>
                 <Text style={{color:"black",fontSize:0.04*Height,alignSelf:'center'}} >
                     Confirm
                 </Text>
             </TouchableOpacity>
         </View>
-        </ScrollView>
     )
 }
 
@@ -127,6 +127,7 @@ const styles = StyleSheet.create({
         position:'absolute',
         bottom:0,
         justifyContent:'center',
+        marginTop:Height/30
     }
 })
 export default TransferScreen;

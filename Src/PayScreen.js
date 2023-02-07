@@ -44,9 +44,9 @@ const PayScreen=({ route, navigation })=>{
     }
 
     return(
-        <ScrollView>
-        <View style={{justifyContent:'flex-start',alignItems:'center',backgroundColor:"#CBC3E3",height:Height,width:Width}}>
-            <View style={{backgroundColor:'#E1E1E1',width:0.9*Width,borderRadius:0.04*Width,marginVertical:Height/30,marginHorizontal:Width/30}}>
+        <View style={{flex:1,justifyContent:'flex-start',alignItems:'center',backgroundColor:"#CBC3E3",height:Height,width:Width,marginBottom:Height/40}}>
+            <ScrollView style={{marginBottom:Width/10}}>
+            <View style={{backgroundColor:'#E1E1E1',width:0.9*Width,borderRadius:0.04*Width,marginVertical:Height/30,marginHorizontal:Width/30,}}>
                 <Text style={{color:'black',fontSize:0.06*Width,fontWeight:'bold',alignSelf:'flex-start',paddingVertical:0.01*Width}}>
                     Select Payment Method
                 </Text>
@@ -94,13 +94,13 @@ const PayScreen=({ route, navigation })=>{
                 </View>
                 <View style={{borderBottomColor: 'black',borderBottomWidth: 0.002*Height,width:Width*0.8,marginHorizontal:Width/30,marginVertical:0.01*Height}}/>
             </View>
+            </ScrollView>
             <TouchableOpacity style={styles.button}  onPress={() => checked.some(x=>x==true) ? navigation.navigate('Bill',{payAmount:payAmount,goldInGrams:goldInGrams}):Alert.alert("Please select Payment Method")}>
                 <Text style={{color:"black",fontSize:0.04*Height,alignSelf:'center'}} >
                     Pay
                 </Text>
             </TouchableOpacity>
         </View>
-        </ScrollView>
     )
 }
 
