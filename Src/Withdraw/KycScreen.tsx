@@ -8,7 +8,8 @@ import {
     Image,
     TouchableOpacity,
     Alert,
-    KeyboardAvoidingView
+    KeyboardAvoidingView,
+    ScrollView
 } from 'react-native';
 
 const Width = Dimensions.get('window').width;
@@ -17,32 +18,34 @@ const Height = Dimensions.get('window').height;
 
 const KycScreen=({navigation})=>{
     return(
-        <View style={{flex:1,justifyContent:'flex-start',alignItems:'center',backgroundColor:"#CBC3E3",height:Height,width:Width}}>
+      <ScrollView>
+        <View style={{flex:1,justifyContent:'flex-start',alignContent:'center',backgroundColor:"#CBC3E3",height:Height,width:Width}}>
             <Text style={{fontSize:0.03*Height,color:'black',fontWeight:'bold',alignSelf:"flex-start",marginHorizontal:Width/50,marginVertical:Width/50}}>
                     KYC Verification
             </Text>
-            <View style={{marginHorizontal:Width/30,marginVertical:Width/30,alignSelf:'center'}}>
+            <View style={{marginHorizontal:Width/30,marginVertical:Width/30,alignSelf:'center',marginBottom:Width/10}}>
                 <Text style={{fontSize:0.03*Height,color:'black',fontWeight:'bold',alignSelf:"center"}}>
                     Proof of ID Name
                 </Text>
-                <View style={{flexDirection:"row" ,backgroundColor:'white',alignItems:'flex-start',width:0.95*Width,marginTop:Width/3}}>
-                  <Image style={{height:80,width:90,marginVertical:Width/30,marginHorizontal:Width/30}} source={{uri:'https://reactnative.dev/img/tiny_logo.png'}}/>
+                <View style={{flexDirection:"row" ,backgroundColor:'white',alignSelf:'center',width:0.95*Width,marginTop:Width/10}}>
+                  <Image style={{height:Width*0.3,width:Width*0.3,maxWidth:200,maxHeight:200,marginVertical:Width/30,marginHorizontal:Width/30}} source={{uri:'https://reactnative.dev/img/tiny_logo.png'}}/>
                   <View style={{marginHorizontal:Width/30,marginVertical:Width/30}}>
                     <Text style={{fontSize:0.02*Height,color:'black',fontWeight:'500',alignSelf:"flex-start"}}>
                        Name
                     </Text>
-                    <Text style={{fontSize:0.02*Height,color:'black',fontWeight:'500',alignSelf:"flex-start",marginTop:Width/10}}>
+                    <Text style={{fontSize:0.02*Height,color:'black',fontWeight:'500',alignSelf:"flex-start",marginTop:Width*0.13}}>
                         ID Details
                     </Text>
                   </View>  
                 </View>
             </View>
-            <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate('KYCVerification')}}>
-                <Text style={{color:"black",fontSize:0.04*Height,alignSelf:'center'}} >
-                  Submit
-                </Text>
-            </TouchableOpacity>
         </View>
+        <TouchableOpacity style={styles.button} onPress={()=>{navigation.navigate('KYCVerification')}}>
+          <Text style={{color:"black",fontSize:0.04*Height,alignSelf:'center'}} >
+            Submit
+          </Text>
+        </TouchableOpacity>
+      </ScrollView>
     )
 }
 const styles = StyleSheet.create({

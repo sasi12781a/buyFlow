@@ -81,7 +81,7 @@ const TransferScreen=({ route, navigation })=>{
                                             {val}
                                         </Text>
                                     </TouchableOpacity>
-                                    <TouchableOpacity onPress={()=>check(id)}>
+                                    <TouchableOpacity onPress={()=>check(id)} style={{alignSelf: 'center',marginBottom:0.01*Width}}>
                                         <CheckBox
                                         style={{height:0.02*Width,width:0.02*Width}}
                                         isChecked={checked[id]}
@@ -96,7 +96,7 @@ const TransferScreen=({ route, navigation })=>{
                         })
                     }
                 </View>
-                <View style={{flexDirection:"row",justifyContent:'space-between',width:0.75*Width,marginHorizontal:Width/40}}>
+                <View style={{flexDirection:"row",justifyContent:'space-between',width:0.75*Width,marginHorizontal:Width/40,alignItems:'center'}}>
                     <TouchableOpacity onPress={()=>click()} >
                         <Text style={{color:'black',fontSize:0.043*Width,fontWeight:'400'}}>                        
                             Add new Account

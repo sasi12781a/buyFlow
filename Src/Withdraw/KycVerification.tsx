@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   Alert,
   KeyboardAvoidingView,
+  ScrollView,
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/dist/Ionicons';
@@ -36,7 +37,8 @@ const Sample=(p:props)=>{
 
 const KycVerification=({navigation})=>{
     return(
-        <View style={{flex:1,backgroundColor:'#CBC3E3'}}>
+        <ScrollView>
+        <View style={{flex:1,backgroundColor:'#CBC3E3',height:Height}}>
             <Text style={{fontSize:0.03*Height,color:'black',fontWeight:'bold',alignSelf:"flex-start",marginHorizontal:Width/50,marginVertical:Width/50}}>
                 KYC Verification
             </Text>
@@ -46,12 +48,13 @@ const KycVerification=({navigation})=>{
                   Verification Successful
                 </Text>
             </View>
-            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Withdraw')}>
-              <Text style={{color:"black",fontSize:0.04*Height,alignSelf:'center'}} >
-                Withdraw
-              </Text>
-            </TouchableOpacity>
         </View>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Withdraw')}>
+          <Text style={{color:"black",fontSize:0.04*Height,alignSelf:'center'}} >
+            Withdraw
+          </Text>
+        </TouchableOpacity>
+      </ScrollView>
     )
 }
 

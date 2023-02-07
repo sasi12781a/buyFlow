@@ -19,7 +19,8 @@ import KycScreen from './Src/Withdraw/KycScreen';
 import TransferScreen from './Src/Withdraw/TransferScreen';
 import WithdrawBill from './Src/Withdraw/WithdrawBill';
 import KycVerification from './Src/Withdraw/KycVerification';
-
+import ProfileScreen from './Src/userAccount/ProfileScreen';
+import ProofScreen from './Src/userAccount/KycProofScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -42,7 +43,13 @@ const App=()=>{
         <Stack.Screen name='Bill' component={WithdrawBill}/>
         <Stack.Screen name='KYCVerification' component={KycVerification}/>
       </Stack.Navigator>
-      
+
+      {/* <Stack.Navigator initialRouteName="Profile">
+        <Stack.Screen name='Withdraw' component={ProfileScreen}/>
+        <Stack.Screen name='Proof' component={ProofScreen}/>
+        <Stack.Screen name='KYC' component={KycScreen}/>
+        <Stack.Screen name='KYCVerification' component={KycVerification}/>
+      </Stack.Navigator> */}
     </NavigationContainer>
   )
 }    
