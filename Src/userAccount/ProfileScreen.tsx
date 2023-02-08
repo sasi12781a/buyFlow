@@ -16,11 +16,10 @@ const Width = Dimensions.get('window').width;
 const Height = Dimensions.get('window').height;
 
 const ProfileScreen=({navigation})=>{
-  const [name,setName]=useState('')
+  const [name,setName]=useState('xxxx')
   const [show,setShow]=useState(false);
   const [phoneNo,setPhoneNo]=useState('')
   const [email,setEmail]=useState('');
-
   return(
     <View style={styles.container}>
       <View style={{paddingHorizontal:Width/30,marginVertical:Width/60}}>
@@ -34,9 +33,17 @@ const ProfileScreen=({navigation})=>{
           }}
         />
         <View style={{flexDirection:'row',alignSelf:'center',justifyContent:'space-between',marginTop:Width/30,width:Width,}}>
-          <Text style={{fontSize:0.03*Height,color:'black',fontWeight:'400',alignSelf:'flex-start',marginHorizontal:Width/25}}>
-            Name: {show ? (<TextInput style={{height:30,width:30}} value={name} onChangeText={(val)=>setName(val)}/>):null}
-          </Text>
+          {show ? <TextInput
+            style={styles.input}
+            placeholderTextColor='black'
+            onChangeText={(val)=>setName(val)}
+            keyboardType='default'
+            value={`${name.toString()}`}
+            placeholder='Enter Name'/>:
+            <Text style={{fontSize:0.03*Height,color:'black',fontWeight:'400',alignSelf:'flex-start',marginHorizontal:Width/25}}>
+              Name: {name}
+            </Text>}
+          
           <TouchableOpacity onPress={()=>setShow(!show)}>
             <Icon name="pencil-outline" size={34} color="black" style={{marginRight:Width/30}}/>
           </TouchableOpacity>
@@ -86,12 +93,11 @@ const styles = StyleSheet.create({
   input: {
     height: 0.06*Height,
     width:Width*0.8,
-    marginVertical:Width/50,
     borderRadius:0.027*Height,
     alignSelf:'flex-start',
-    backgroundColor:"#7E8274",
-    color:'white',
-    fontSize:0.02*Height
+    color:'black',
+    fontSize:0.03*Height,
+    paddingHorizontal:Width/30
   },
   button:{
     backgroundColor: "#7E8274",
