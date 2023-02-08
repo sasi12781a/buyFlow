@@ -37,7 +37,7 @@ const ProfileScreen=({navigation})=>{
             style={styles.input}
             placeholderTextColor='black'
             onChangeText={(val)=>setName(val)}
-            keyboardType='default'
+            keyboardType='name-phone-pad'
             value={`${name.toString()}`}
             placeholder='Enter Name'/>:
             <Text style={{fontSize:0.03*Height,color:'black',fontWeight:'400',alignSelf:'flex-start',marginHorizontal:Width/25}}>
