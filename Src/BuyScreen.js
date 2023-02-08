@@ -46,7 +46,7 @@ const BuyScreen=({ navigation })=>{
                   </TouchableOpacity>
                 )
               })}
-          </View>
+            </View>
           <Text style={{fontSize:0.02*Height,marginTop:0.02*Height,alignSelf:'flex-start',color:'black'}}>
             Gold
           </Text>
