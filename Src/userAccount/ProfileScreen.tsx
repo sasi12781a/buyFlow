@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState,useEffect,useRef} from 'react';
 import {
   StyleSheet,
   TextInput,
@@ -20,6 +20,7 @@ const ProfileScreen=({navigation})=>{
   const [show,setShow]=useState(false);
   const [phoneNo,setPhoneNo]=useState('')
   const [email,setEmail]=useState('');
+
   return(
     <View style={styles.container}>
       <View style={{paddingHorizontal:Width/30,marginVertical:Width/60}}>
@@ -35,6 +36,8 @@ const ProfileScreen=({navigation})=>{
         <View style={{flexDirection:'row',alignSelf:'center',justifyContent:'space-between',marginTop:Width/30,width:Width,}}>
           {show ? <TextInput
             style={styles.input}
+            blurOnSubmit={false}
+            autoFocus={true}
             placeholderTextColor='black'
             onChangeText={(val)=>setName(val)}
             keyboardType='name-phone-pad'
@@ -44,7 +47,7 @@ const ProfileScreen=({navigation})=>{
               Name: <Text style={{fontSize:0.03*Height,color:'green',fontWeight:'bold',alignSelf:'flex-start',marginHorizontal:Width/25}}>{name ? name[0].toUpperCase()+name.slice(1):''}</Text>
             </Text>}
           
-          <TouchableOpacity onPress={()=>setShow(!show)}>
+          <TouchableOpacity onPress={()=>{setShow(!show)}}>
             <Icon name="pencil-outline" size={34} color="black" style={{marginRight:Width/30}}/>
           </TouchableOpacity>
         </View>
