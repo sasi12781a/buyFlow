@@ -41,7 +41,7 @@ const ProfileScreen=({navigation})=>{
             value={`${name.toString()}`}
             placeholder='Enter Name'/>:
             <Text style={{fontSize:0.03*Height,color:'black',fontWeight:'400',alignSelf:'flex-start',marginHorizontal:Width/25}}>
-              Name: {name}
+              Name: <Text style={{fontSize:0.03*Height,color:'green',fontWeight:'400',alignSelf:'flex-start',marginHorizontal:Width/25}}>{name[0].toUpperCase()+name.slice(1)}</Text>
             </Text>}
           
           <TouchableOpacity onPress={()=>setShow(!show)}>
