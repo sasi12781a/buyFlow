@@ -38,13 +38,13 @@ const ProfileScreen=({navigation})=>{
             style={styles.input}
             blurOnSubmit={false}
             autoFocus={true}
-            placeholderTextColor='black'
+            placeholderTextColor='green'
             onChangeText={(val)=>setName(val)}
             keyboardType='name-phone-pad'
             value={`${name.toString()}`}
             placeholder='Enter Name'/>:
             <Text style={{fontSize:0.03*Height,color:'black',fontWeight:'400',alignSelf:'flex-start',marginHorizontal:Width/25}}>
-              Name: <Text style={{fontSize:0.03*Height,color:'green',fontWeight:'bold',alignSelf:'flex-start',marginHorizontal:Width/25}}>{name ? name[0].toUpperCase()+name.slice(1):''}</Text>
+              Name:<Text style={{fontSize:0.03*Height,color:'green',fontWeight:'bold',alignSelf:'flex-start',marginHorizontal:Width/25}}>{name ? name[0].toUpperCase()+name.slice(1):'xxx'}</Text>
             </Text>}
           
           <TouchableOpacity onPress={()=>{setShow(!show)}}>
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     width:Width*0.8,
     borderRadius:0.027*Height,
     alignSelf:'flex-start',
-    color:'black',
+    color:'green',
     fontSize:0.03*Height,
     paddingHorizontal:Width/30
   },
