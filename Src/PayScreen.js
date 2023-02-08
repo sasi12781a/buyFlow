@@ -44,7 +44,7 @@ const PayScreen=({ route, navigation })=>{
     }
 
     return(
-        <View style={{flex:1,justifyContent:'flex-start',alignItems:'center',backgroundColor:"#CBC3E3",height:Height,width:Width,marginBottom:Height/40}}>
+        <View style={{flex:1,justifyContent:'flex-start',alignItems:'center',backgroundColor:"#CBC3E3",height:Height,width:Width}}>
             <ScrollView style={{marginBottom:Width/10}}>
             <View style={{backgroundColor:'#E1E1E1',width:0.9*Width,borderRadius:0.04*Width,marginVertical:Height/30,marginHorizontal:Width/30,}}>
                 <Text style={{color:'black',fontSize:0.06*Width,fontWeight:'bold',alignSelf:'flex-start',paddingVertical:0.01*Width}}>
@@ -112,7 +112,6 @@ const styles = StyleSheet.create({
         position:'absolute',
         bottom:0,
         justifyContent:'center',
-        marginTop:Height/30
     }
 })
 export default PayScreen;

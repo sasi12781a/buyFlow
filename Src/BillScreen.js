@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   Alert,
   KeyboardAvoidingView,
+  ScrollView,
 } from 'react-native';
 
 import Icon from 'react-native-vector-icons/dist/Ionicons';
@@ -18,6 +19,7 @@ const Height = Dimensions.get('window').height;
 const BillScreen=({ route, navigation })=>{
     const {payAmount,goldInGrams} = route.params;
     return (
+       <ScrollView>
         <View style={{flex:1,justifyContent:'flex-start',alignItems:'center',backgroundColor:"#CBC3E3",height:Height,width:Width}}>
             <Icon name="checkmark-circle" size={100} color="green" style={{marginVertical:0.05*Height}} />
             <Text style={{color:'black',fontSize:0.043*Width,fontWeight:'400',alignSelf:'center',paddingHorizontal:0.025*Width}}>                        
@@ -39,6 +41,7 @@ const BillScreen=({ route, navigation })=>{
             </TouchableOpacity>
 
         </View>
+        </ScrollView>
     )
 }
 
